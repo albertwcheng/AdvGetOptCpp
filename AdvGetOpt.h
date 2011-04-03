@@ -26,7 +26,6 @@
 #include <iostream>
 #include <map>
 
-
 using namespace std;
 
 class OptStruct{
@@ -67,6 +66,7 @@ void parseOptsIntoMultiMap(vector<OptStruct>& opts,multimap<string,string>& optm
 bool hasOpt(map<string,string>& optmap,const string& key);
 bool hasOpt(multimap<string,string>& optmap,const string& key);
 string getOptValue(map<string,string>& optmap,const string& key,const string& defaultValue="");
+string getOptValue(multimap<string,string>& optmap,const string& key,const string& defaultValue="");
 bool getOptValues(vector<string>& values, multimap<string,string>& optmap,const string& key);
 bool checkRequiredOpts(map<string,string>& optmap,vector<string>& requiredOpts,const char*message="Error: option %s not specified.\n");
 bool checkRequiredOpts(multimap<string,string>& optmap,vector<string>& requiredOpts,const char*message="Error: option %s not specified.\n");

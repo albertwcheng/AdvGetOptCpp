@@ -260,6 +260,20 @@ string getOptValue(map<string,string>& optmap,const string& key,const string& de
 	
 	return findI->second;
 }
+
+string getOptValue(multimap<string,string>& optmap,const string& key,const string& defaultValue){
+	
+	pair<multimap<string,string>::iterator,multimap<string,string>::iterator> findI=optmap.equal_range(key);
+	
+	if(findI.first==optmap.end())
+		return defaultValue;
+	
+	//for(multimap<string,string>::iterator i=findI.first;i!=findI.second;i++)
+	//	values.push_back(i->second);
+	return findI.first->second;
+}
+
+
 bool getOptValues(vector<string>& values, multimap<string,string>& optmap,const string& key){
 	values.clear();
 	pair<multimap<string,string>::iterator,multimap<string,string>::iterator> findI=optmap.equal_range(key);
